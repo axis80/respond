@@ -8,8 +8,6 @@
     	include '../setup.php';
     }
 	
-	$arr = Array(false => 'false', true => 'true');
-	
 	// get system message
 	$system_message = '';
 	
@@ -29,7 +27,7 @@
 	?>
 angular.module('respond.setup', [])
 .constant('Setup', {
-	debug: 					<?php print $arr[DEBUG]; ?>,
+	debug: 					<?php print (DEBUG ? 'true' : 'false'); ?>,
 	
 	// urls where your app (url), api and sites folder are publicly available
 	url: 					'<?php print APP_URL; ?>',
@@ -51,8 +49,8 @@ angular.module('respond.setup', [])
 	// defaults
 	language: 				'<?php print DEFAULT_LANGUAGE; ?>',
 	direction: 				'<?php print DEFAULT_DIRECTION; ?>',
-	changeDefaultLanguage:	<?php print $arr[CHANGE_DEFAULT_LANGUAGE]; ?>, 
-	defaultNameOnCreate:	<?php print $arr[DEFAULT_NAME_ON_CREATE]; ?>, 
+	changeDefaultLanguage:	<?php print (CHANGE_DEFAULT_LANGUAGE ? 'true' : 'false'); ?>, 
+	defaultNameOnCreate:	<?php print (DEFAULT_NAME_ON_CREATE ? 'true' : 'false'); ?>, 
 	
 	// app branding
 	app:					'<?php print BRAND; ?>',
@@ -72,6 +70,6 @@ angular.module('respond.setup', [])
 	urlMode:			 	'<?php print URL_MODE; ?>',
 	
 	// show passcode
-	showPasscode: 			<?php print $arr[$showPasscode]; ?>
+	showPasscode: 			<?php print ($showPasscode ? 'true' : 'false'); ?>
 	
 });
